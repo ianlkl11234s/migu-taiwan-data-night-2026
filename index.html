@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <title>從一列淡水信義線開始 — 數據人之夜</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23000'/%3E%3Ctext x='50' y='71' font-family='Arial,Helvetica,sans-serif' font-size='62' font-weight='700' text-anchor='middle' fill='%23fff'%3EM%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -1116,10 +1117,13 @@
   .qa-foot .right .handle { font-family: "JetBrains Mono", monospace; font-size: 18px; color: var(--fg); letter-spacing: 0.06em; }
   .qa-foot .right .handle .at { color: var(--cyan); }
   .qa-foot .right .meta { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--fg-mute); letter-spacing: 0.12em; }
-  .qa-qrs { position: absolute; right: 90px; bottom: 220px; display: flex; gap: 32px; z-index: 2; }
-  .qa-qrs .qr { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .qa-qrs .qr img { width: 220px; height: 220px; display: block; background: #fff; padding: 10px; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-  .qa-qrs .qr figcaption { font-family: "JetBrains Mono", monospace; font-size: 18px; color: var(--fg); letter-spacing: 0.18em; text-transform: uppercase; }
+  .qa-qrs { position: absolute; right: 90px; bottom: 220px; display: flex; gap: 24px; z-index: 2; }
+  .qa-qrs .qr { display: flex; flex-direction: column; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; transition: transform 0.18s ease; }
+  .qa-qrs .qr:hover { transform: translateY(-3px); }
+  .qa-qrs .qr img { width: 200px; height: 200px; display: block; background: #fff; padding: 10px; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); transition: box-shadow 0.18s ease; }
+  .qa-qrs .qr:hover img { box-shadow: 0 12px 32px rgba(91,224,232,0.35), 0 0 0 1px rgba(91,224,232,0.5); }
+  .qa-qrs .qr .qr-cap { font-family: "JetBrains Mono", monospace; font-size: 18px; color: var(--fg); letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.18s ease; }
+  .qa-qrs .qr:hover .qr-cap { color: var(--cyan); }
 
   /* ---- Architecture Multiplier (REDESIGNED v4 — vertical stack, single-row apps) ---- */
   .s-multi .frame { padding: 96px 80px 60px; display: flex; flex-direction: column; gap: 24px; }
@@ -3456,8 +3460,9 @@ class MyCollector(...):
       <div class="qa-mega">Q<span class="amp">&amp;</span>A</div>
       <div class="qa-q">你想<strong>解開這座島</strong>的哪一塊拼圖？</div>
       <div class="qa-qrs">
-        <figure class="qr"><img src="assets/qr-threads.png" alt="Threads QR"/><figcaption>Threads</figcaption></figure>
-        <figure class="qr"><img src="assets/qr-linkedin.png" alt="LinkedIn QR"/><figcaption>LinkedIn</figcaption></figure>
+        <a class="qr" href="https://github.com/ianlkl11234s" target="_blank" rel="noopener"><img src="assets/qr-github.png" alt="GitHub QR"/><span class="qr-cap">GitHub</span></a>
+        <a class="qr" href="https://www.threads.com/@ianlkl1314" target="_blank" rel="noopener"><img src="assets/qr-threads.png" alt="Threads QR"/><span class="qr-cap">Threads</span></a>
+        <a class="qr" href="https://www.linkedin.com/in/min-hung-cheng-651802117/" target="_blank" rel="noopener"><img src="assets/qr-linkedin.png" alt="LinkedIn QR"/><span class="qr-cap">LinkedIn</span></a>
       </div>
       <div class="qa-foot">
         <div class="left">
