@@ -2,6 +2,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "migu-taiwan-data-night-2026",
+  "routes": [{ "pattern": "migu-taiwan-data-night-2026.itsmigu.com", "custom_domain": true }],
+  // 加了 routes 後一定要寫，否則 workers.dev 測試網址會整站 404
+  "workers_dev": true,
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./",
