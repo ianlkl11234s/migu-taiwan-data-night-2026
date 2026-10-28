@@ -1,0 +1,32 @@
+# main 有新 commit 就部署到 Cloudflare Workers（純靜態站，不需 build）
+# 需要 repo secret：CLOUDFLARE_API_TOKEN（Edit Cloudflare Workers 權限）
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Deploy
+        run: npx wrangler@4.148.0 deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: d104f32eafd7b294ba1f74b731ffd1e0
