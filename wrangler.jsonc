@@ -1,0 +1,14 @@
+// Cloudflare Workers 靜態資產部署設定（取代 Zeabur Caddy 靜態站；Zeabur 2026-12 停運）
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "migu-taiwan-data-night-2026",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./",
+    // 原 Caddy 對不存在的路徑回 index.html（200），沿用此行為
+    "not_found_handling": "single-page-application",
+    // Caddy 不做 .html／結尾斜線轉址，保持原樣
+    "html_handling": "none"
+  },
+  "observability": { "enabled": true }
+}

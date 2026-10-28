@@ -1,0 +1,9 @@
+# 對應原 Caddy 的 charset=utf-8（Cloudflare 對純文字／JS／CSS 預設不帶）
+/
+  Content-Type: text/html; charset=utf-8
+/*.html
+  Content-Type: text/html; charset=utf-8
+/*.js
+  Content-Type: text/javascript; charset=utf-8
+/*.css
+  Content-Type: text/css; charset=utf-8

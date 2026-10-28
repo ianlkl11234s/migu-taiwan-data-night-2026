@@ -1,0 +1,11 @@
+# 不公開的檔案（Zeabur 原本也只服務 git 追蹤的內容；這裡再排除設定與文件）
+.git
+.github
+.gitignore
+.assetsignore
+.worktrees
+node_modules
+wrangler.jsonc
+.wrangler
+CLAUDE.md
+*.bak*
